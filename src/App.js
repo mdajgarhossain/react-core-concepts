@@ -5,15 +5,16 @@ import './App.css';
 function App() {
   const products = [
     {name: 'Photoshop', price: '$90.99'},
-    {name: 'Illustrator', price: '$60.99'}
+    {name: 'Illustrator', price: '$60.99'},
+    {name: 'PDF Reader', price: '$7.99'}
   ];
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <Product name={products[0].name} price={products[0].price}/> */}
-        <Product product={products[0]}/>
-        <Product product={products[1]}/>
+        {
+          products.map(product => <Product product={product}/> )
+        }
       </header>
     </div>
   );
