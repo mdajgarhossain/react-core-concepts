@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Counter />
         {
           products.map(product => <Product product={product}/> )
         }
@@ -34,7 +35,7 @@ function Product(props) {
 
   //Destructuring from props
   const {name, price} = props.product;
-  console.log(name, price);
+  // console.log(name, price);
   
   return(
     <div style={productStyle}>
@@ -43,6 +44,16 @@ function Product(props) {
       <h3>{name}</h3>
       <h4>{price}</h4>
       <button>Buy Now</button>
+    </div>
+  );
+}
+
+function Counter(props) {
+  const [count, setCount] = useState(10);
+  console.log(count, setCount);
+  return(
+    <div>
+      <h1>Count: {count}</h1>
     </div>
   );
 }
