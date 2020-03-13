@@ -3,32 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  var person = {
-    name: 'Jewell',
-    job: 'Software Developer'
-  };
-  var style = {
-    color: 'maroon',
-    backgroundColor: 'yellow'
-  };
+  const developers = ['Fullstack', 'Frontend', 'Backend'];
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 style={{color: 'green'}}>{`${person.job}`}</h1>
-        <h2 style={style}>Web Development</h2>
-        <Developer />
-        <Developer />
+        <Developer name='A.H. Jewell' job='Software'/>
+        <Developer name='Jhankar Mahbub' job='React'/>
+        <Developer name='Karim Sheikh' job={developers[0]}/>
+        <Developer name='Ajgar' job={developers[1]}/>
       </header>
     </div>
   );
 }
 
-function Developer() {
+function Developer(props) {
+  console.log(props);
+  
   return(
     <div style={{border: '2px solid green', margin: '10px', padding: '10px'}}>
-      <h2>A.H. Jewell</h2>
-      <h3>React Developer</h3>
+      <h2>{props.name}</h2>
+      <h3>{props.job} Developer</h3>
     </div>
   );
 }
